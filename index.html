@@ -2,40 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shivam Patange - Deception Technology Analyst and Threat Hunter. Portfolio showcasing honeynet infrastructure, attack visualization, and threat detection projects.">
   <title>Shivam Patange</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header>
-  <h1>Shivam Patange</h1>
-  <p>Deception Technology Analyst | Threat Hunter</p>
-</header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-brand">Portfolio</div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">☀️</button>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>I design and deploy large-scale honeynet infrastructures, analyze attacker behavior, and build deception systems to detect internal threats.</p>
-</section>
+  <main id="main">
+    <section id="hero" class="hero" aria-label="Introduction">
+      <div class="hero-content profile-hero">
+        <img src="assets/profile.jpg" alt="Shivam Patange profile picture" class="profile-photo" onerror="this.style.display='none'">
+        <div>
+          <p class="hero-subtitle">Deception Technology Analyst & Threat Hunter</p>
+          <h1>Shivam Kishor Patange</h1>
+          <p>Building honeytrap architecture, analyzing attacker behavior, and visualizing global threat activity in real time.</p>
+          <div class="hero-cta">
+            <a href="#projects" class="button">Explore Projects</a>
+            <a href="#contact" class="button button-secondary">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+      <p class="hero-tagline">Threat Intel · TTPs · MITRE ATT&CK · SOAR · AWS · Docker · Network Defense</p>
+    </section>
 
-<section id="projects">
-  <h2>Projects</h2>
+    <section id="about" class="content-section" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>Hi, I'm Shivam, a cybersecurity professional specializing in deception technology, cloud and container operations, and SOC automation. I architect scalable honeynet deployments (HOPE), deploy monitoring at AWS scale, and integrate SOAR workflows to reduce incident response time and increase attacker containment effectiveness.</p>
+      <div class="details-grid">
+        <article>
+          <h3>Mission</h3>
+          <p>Design deception platforms that minimize dwell time and improve detection fidelity for blue teams through automated orchestration and response.</p>
+        </article>
+        <article>
+          <h3>Approach</h3>
+          <p>Combine sensor telemetry, attack graph analysis, and ML-enhanced visualizations to surface high-value threats quickly and drive SOC triage automation.</p>
+        </article>
+      </div>
+    </section>
 
-  <div class="card">
-    <h3>HOPE System</h3>
-    <p>Honeypot Operations & Processing Environment simulating enterprise infrastructure.</p>
-  </div>
+    <section id="skills" class="content-section" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Core Skills</h2>
+      <ul class="skills-list">
+        <li>Honeypot Operations (HOPE)</li>
+        <li>Deception Technology</li>
+        <li>Cloud Security (AWS)</li>
+        <li>Docker & Kubernetes</li>
+        <li>Virtual Machines (VMs)</li>
+        <li>Arkime (Moloch) Packet Capture</li>
+        <li>Wazuh SIEM & Endpoint Security</li>
+        <li>Zeek (Bro) Network Traffic Analysis</li>
+        <li>SOAR (Security Orchestration, Automation & Response)</li>
+        <li>Threat Hunting & Incident Response</li>
+        <li>SIEM/Opensearch</li>
+        <li>Python, Bash</li>
+        <li>Network Engineering</li>
+      </ul>
+    </section>
 
-  <div class="card">
-    <h3>HAMMER</h3>
-    <p>Global honeypot monitoring and attack visualization platform.</p>
-  </div>
+    <section id="projects" class="content-section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Featured Projects</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>HOPE System</h3>
+          <p>Honeypot Operations & Processing Environment simulating enterprise infrastructure, collecting multi-protocol attack telemetry, and producing actionable detection data.</p>
+          <p><strong>Tech stack:</strong> Docker, Kafka, Elasticsearch, Python, Grafana.</p>
+        </article>
+        <article class="card">
+          <h3>HAMMER</h3>
+          <p>Global honeypot monitoring and attack visualization platform that correlates events across geographic nodes and identifies volumetric threats.</p>
+          <p><strong>Tech stack:</strong> Python3, Flask, Reddis, MongoDB, REST APIs.</p>
+        </article>
+        <article class="card">
+          <h3>Threat Cluster Analyzer</h3>
+          <p>Tool that clusters attacker behavior by TTPs and automatically generates incident summaries for SOC triage.</p>
+          <p><strong>Tech stack:</strong> Python, scikit-learn, MISP, CSV/JSON pipelines.</p>
+        </article>
+      </div>
+    </section>
 
-</section>
+    <section id="contact" class="content-section" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>I'm available for consultation and collaboration on advanced deception and threat detection programs.</p>
+      <p>Email: <a href="mailto:shivam@example.com">shivam@example.com</a></p>
+      <p>GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noreferrer noopener">github.com/yourusername</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer noopener">linkedin.com/in/yourusername</a></p>
+    </section>
+  </main>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: Coming soon.com</p>
-</section>
+  <footer class="site-footer">
+    <p>&copy; 2026 Shivam Patange. Built with HTML, CSS, and JavaScript.</p>
+    <p>Live on GitHub Pages: <a href="https://yourusername.github.io" target="_blank" rel="noreferrer noopener">yourusername.github.io</a></p>
+  </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
