@@ -12,9 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Theme toggle (dark/light)
+  // Theme toggle (dark/light) with automatic time-based switching
   const themeToggle = document.getElementById('themeToggle');
   const storedTheme = localStorage.getItem('theme');
+
+  function getTimeBasedTheme() {
+    const hour = new Date().getHours();
+    // Day: 6 AM to 6 PM, Night: 6 PM to 6 AM
+    return (hour >= 6 && hour < 18) ? 'light' : 'dark';
+  }
 
   function setTheme(mode) {
     if (mode === 'light') {
@@ -27,15 +33,47 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('theme', mode);
   }
 
+  // Set initial theme: use stored preference, or fall back to time-based
+  let autoUpdateInterval;
   if (storedTheme) {
     setTheme(storedTheme);
   } else {
-    setTheme('dark');
+    const autoTheme = getTimeBasedTheme();
+    setTheme(autoTheme);
+    // For users without stored preference, check time every hour and update theme
+    autoUpdateInterval = setInterval(() => {
+      if (!localStorage.getItem('theme')) {
+        const currentAutoTheme = getTimeBasedTheme();
+        const currentTheme = document.body.classList.contains('light') ? 'light' : 'dark';
+        if (currentAutoTheme !== currentTheme) {
+          setTheme(currentAutoTheme);
+        }
+      }
+    }, 60 * 60 * 1000); // Check every hour
   }
 
   themeToggle.addEventListener('click', () => {
     const nextTheme = document.body.classList.contains('light') ? 'dark' : 'light';
     setTheme(nextTheme);
+  });
+
+  // Double-click to reset to automatic time-based theme
+  themeToggle.addEventListener('dblclick', () => {
+    localStorage.removeItem('theme');
+    const autoTheme = getTimeBasedTheme();
+    setTheme(autoTheme);
+    // Start automatic updating if not already running
+    if (!autoUpdateInterval) {
+      autoUpdateInterval = setInterval(() => {
+        if (!localStorage.getItem('theme')) {
+          const currentAutoTheme = getTimeBasedTheme();
+          const currentTheme = document.body.classList.contains('light') ? 'light' : 'dark';
+          if (currentAutoTheme !== currentTheme) {
+            setTheme(currentAutoTheme);
+          }
+        }
+      }, 60 * 60 * 1000);
+    }
   });
 
   // Scrollspy: highlight nav links based on sections
